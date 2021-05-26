@@ -5,15 +5,20 @@ const app = express()
 const port = 3000
 const data = require('./data.js')
 
+// set the view engine to ejs
+app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }))
 
 
   app.route('/').get((req,res) =>{
-      res.send("Welcome to our schedule website")
+    res.render('pages/index')
   })
 app.route('/users')
   .get((req, res) => {
-    res.send(data.users)
+    //res.send(data.users)
+    res.render('pages/users',{
+        users: data.users
+    })
   })
   .post((req, res) => {
     var crypto = require('crypto');
@@ -26,8 +31,9 @@ app.route('/users')
   })
 app.route('/schedules')
 .get((req,res) =>{
-    //console.log(data.schedules)
-    res.send(data.schedules)
+    res.render('pages/schedules',{
+        schedules: data.schedules
+    })
 })
 .post((req,res) =>{
     const schedule = req.body
