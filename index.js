@@ -5,6 +5,9 @@ const app = express()
 const port = 3000
 const data = require('./data.js')
 
+// set the view engine to ejs
+app.set('view engine', 'ejs');
+
 app.use(bodyParser.urlencoded({ extended: true }))
 
 
