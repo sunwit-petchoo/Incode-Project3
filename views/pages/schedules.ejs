@@ -1,5 +1,6 @@
 <%- include('header') -%>
 <main>
+    <% if (schedules.length != 0) { %>
     <h2>Schedule List</h2>
     <table>
         <tr>
@@ -17,5 +18,10 @@
         </tr>
         <% }) %> 
       </table>
+      <% } else { %>
+      <h2>There is no schedule for this user</h2>
+      <% } %>
+   
   </main>
 <%- include('footer') -%>
+
