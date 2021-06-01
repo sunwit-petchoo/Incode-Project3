@@ -4,6 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "create-database": "set PGPASSWORD=sunwitpetchoo&& psql -U postgres -h localhost -d mrcoffee -f sql/createdb.sql",
+    "create-table": "set PGPASSWORD=sunwitpetchoo&& psql -U postgres -h localhost -d mrcoffee -f sql/create_schedules.sql",
+    "seed-table": "set PGPASSWORD=sunwitpetchoo&& psql -U postgres -h localhost -d mrcoffee -f sql/seed_schedules.sql",
+    "connect-psql": "set PGPASSWORD=sunwitpetchoo&& psql -U postgres -h localhost -d mrcoffee", 
+    "dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,7 +23,9 @@
   },
   "homepage": "https://github.com/sunwit-petchoo/Incode-Project3#readme",
   "dependencies": {
-    "ejs": "^3.1.6",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "pg": "^8.6.0",
+    "pg-promise": "^10.10.2",
+    "ejs": "^3.1.6"
   }
 }

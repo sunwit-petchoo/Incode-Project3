@@ -4,6 +4,7 @@ const bodyParser = require('body-parser')
 const app = express()
 const port = 3000
 const data = require('./data.js')
+const db = require('./database')
 
 // set the view engine to ejs
 app.set('view engine', 'ejs');
@@ -11,6 +12,18 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 // index page
   app.route('/').get((req,res) =>{
+    //res.render('pages/index')
+    db.any('select * from schedules;')
+    .then((schedules) => {
+        res.render('pages/index')
+    })
+    .catch((err) => {
+        res.send(err)
+    })
+   
+  })
+//schedule from/to DB
+  app.route('/new').get((req,res) =>{
     res.render('pages/index')
   })
 // users get and post   
