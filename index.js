@@ -13,6 +13,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 // index page
   app.route('/').get((req,res) =>{
     //res.render('pages/index')
+    console.log("AAAAAAAAAAAAAAAA")
     db.any('select * from schedules;')
     .then((schedules) => {
         res.render('pages/index')
