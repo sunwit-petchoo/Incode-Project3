@@ -15,12 +15,12 @@ app.use(bodyParser.urlencoded({ extended: true }))
     //res.render('pages/index')
     db.any('select * from schedules;')
     .then((schedules) => {
-        res.send(schedules)
+        res.render('pages/index')
     })
     .catch((err) => {
         res.send(err)
     })
-    
+   
   })
 //schedule from/to DB
   app.route('/new').get((req,res) =>{
