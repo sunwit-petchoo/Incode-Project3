@@ -13,10 +13,12 @@ app.use(bodyParser.urlencoded({ extended: true }))
 // index page
   app.route('/').get((req,res) =>{
     //res.render('pages/index')
-    console.log("AAAAAAAAAAAAAAAA")
+    
     db.any('select * from schedules;')
     .then((schedules) => {
-        res.render('pages/index')
+        res.render('pages/schedules',{
+            schedules: schedules
+        })
     })
     .catch((err) => {
         res.send(err)
@@ -25,7 +27,18 @@ app.use(bodyParser.urlencoded({ extended: true }))
   })
 //schedule from/to DB
   app.route('/new').get((req,res) =>{
-    res.render('pages/index')
+    res.render('pages/newSchedule',{
+        users: data.users
+    })
+  }).post((req, res) =>{
+    db.none('insert into schedules(user_id, day, start_at, end_at)' +
+    'values(${user_id}, ${day}, ${start_at}, ${end_at})',req.body)
+    .then((schedules) => {
+        res.redirect('/new')
+    })
+    .catch((err) => {
+        res.send(err.message)
+    })
   })
 // users get and post   
 app.route('/users')
@@ -57,7 +70,6 @@ app.route('/schedules')
     schedule['day'] = parseInt(schedule.day)
     data.schedules.push(schedule)
     res.redirect('/schedules')
-
 })
 //add new user 
 app.route('/users/new')
