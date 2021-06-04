@@ -2,7 +2,7 @@
 <main>
     <% if (schedules.length != 0) { %>
     <h2>Schedule List</h2>
-    <table>
+    <table id = "scheduleList">
         <tr>
           <th>User Id</th>
           <th>Day</th>
@@ -12,7 +12,32 @@
         <% schedules.forEach((schedule)=>{%>
         <tr>
           <td><%= schedule.user_id %></td>
-          <td><%= schedule.day %></td>
+          <% switch (schedule.day) {
+            case 1: %>
+            <td>Monday</td>
+          <% break;
+            case 2: %>
+            <td>Tuesday</td>
+          <% break;
+            case 3: %>
+            <td>Wednesday</td>
+            <% break;
+            case 4: %>
+            <td>Thursday</td>
+            <% break;
+            case 5: %>
+            <td>Friday</td>
+          <% break;
+          case 6: %>
+            <td>Saturday</td>
+          <% break;
+          case 7: %>
+            <td>Sunday</td>
+          <% break;
+            default:
+            break; } %>
+          <!-- <td><%= schedule.day %></td> -->
+
           <td><%= schedule.start_at %></td>
           <td><%= schedule.end_at %></td>
         </tr>

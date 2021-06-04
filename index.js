@@ -8,7 +8,7 @@ const data = require('./data.js')
 // set the view engine to ejs
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }))
-
+app.use(express.static('public'))
 // index page
   app.route('/').get((req,res) =>{
     res.render('pages/index')
@@ -22,7 +22,7 @@ app.route('/users')
     })
   })
   .post((req, res) => {
-      console.log("success!!")
+    
     var crypto = require('crypto');
     var encrypt = crypto.createHash('sha256').update(req.body.password).digest('base64')
     const user = req.body
@@ -105,8 +105,6 @@ app.get('/users/:id/schedules', (req, res) => {
         res.send("user id does not exist")
     }
 })
-
-
 
 app.listen(port,() =>{
     console.log(`listening at http://localhost:${port}`)

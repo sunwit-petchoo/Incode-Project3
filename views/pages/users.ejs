@@ -1,14 +1,18 @@
 <%- include('header') -%>
 <main>
     <h2>There are <%=users.length %> users in the system</h2>
+    
     <% let num = 1 %> 
     <% users.forEach((user)=>{%>
+    <div class="user-content">
       <h3>User:<%= num %></h3>
       <p><strong>Frist name:</strong>  <%= user.firstname %></p>
       <p><strong>Last name:</strong>  <%= user.lastname %></p>
       <p><strong>Email:</strong>  <%= user.email %></p>
       <p><strong>Password:</strong>  <%= user.password %></p>
+    </div>
       <% num ++ %> 
     <% }) %> 
+  
   </main>
 <%- include('footer') -%>
