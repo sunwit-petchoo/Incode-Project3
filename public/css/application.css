@@ -1,0 +1,159 @@
+@import url('//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css');
+.success-msg {
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 3px 3px 3px 3px;
+}
+.success-msg {
+  color: #270;
+  background-color: #DFF2BF;
+}
+#msg{
+  display: none;
+}
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    position: relative;
+  }
+
+  nav {
+    display: flex;
+    width: 30%;
+  }
+  a {
+    text-decoration: none;
+    font-size: 14pt;
+    color: white;
+    margin-right: 7%;
+    margin-top: 7%;
+  }
+  #page-container {
+    position: relative;
+    min-height: 100vh;
+  }
+  #content-wrap {
+    padding-bottom: 6rem;    /* Footer height */
+  }
+  header {
+    display: flex;
+    justify-content: space-between;
+    background-color: #6a7b8b;
+  }
+  header img {
+    width: 10%;
+    margin: 1% 1% 1% 3%;
+  }
+  header h1 {
+   margin:auto;
+   color: white;
+  }
+  footer {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    background-color: #6a7b8b;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 6rem;     
+  }
+  footer div img {
+    width: 2%;
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-bottom: 20px;
+  }
+  #footer-home {
+    padding-top: 15px;
+  }
+  main {
+      text-align: left;
+      margin: 30px;
+      height: inherit;
+  }
+    main p {
+    margin-top: 5px;
+    margin-bottom: 10px;
+  } 
+  h2 {
+    color: #5c5b5b;
+    margin-bottom: 10px;
+  }
+  h3 {
+    color: #5c5b5b;
+  }
+  .user-content p:last-child {
+      margin-bottom: 20px;
+  }
+  #scheduleList {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  #scheduleList td, #scheduleList th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #scheduleList tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #scheduleList tr:hover {background-color: #ddd;}
+  
+  #scheduleList th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #04aaaa;
+    color: white;
+  }
+  input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+    background-color: #c4cad0;
+    color:black;
+    font-weight: 500;
+  }
+  .content-contact-details {
+    display: flex;
+    justify-content: center;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    
+  }
+  form button {
+    margin: auto;
+    background-color: #6a7b8b;
+    padding: 20px 50px;
+    color: white;
+    font-size: 16pt;
+    font-weight: bold;
+    border: none;
+    border-radius: 15px 15px;
+  }
+  label {
+    font-size: 14pt;
+    font-weight: bold;
+    color: #5c5b5b;
+  }
+
+

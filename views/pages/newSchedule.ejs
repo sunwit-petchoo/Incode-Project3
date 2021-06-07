@@ -1,30 +1,35 @@
 <%- include('header') -%>
 <main>
+  
     <h2>Add New Schedule</h2>
+    <div class="success-msg" id="msg">
+      <i class="fa fa-check"></i>
+      Schedule added successfully
+    </div>
      <div class="content-contact-details">
         
         <form  action="/new" method="post">
-          <label for="user_id">User Id *</label><br />
+          <label for="user_id">User Name</label><br />
          
             <select name="user_id" id="user_id">
                 <% let index = 0 %>
                 <% users.forEach((user)=>{%>
-                <option value="<%= index %>"><%=user.firstname%> <%=user.lastname%></option>
+                <option value="<%=user.firstname%> <%=user.lastname%>"><%=user.firstname%> <%=user.lastname%></option>
                 <% index ++ %> 
                 <% }) %> 
             </select><br />
           
           <label for="day">day</label><br />
           <select name="day" id="day">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
+            <option value="1">Monday</option>
+            <option value="2">Tuesday</option>
+            <option value="3">Wednesday</option>
+            <option value="4">Thursday</option>
+            <option value="5">Friday</option>
+            <option value="6">Saturday</option>
+            <option value="7">Sunday</option>
           </select><br />
-          <label for="start_at">day</label><br />
+          <label for="start_at">Start at</label><br />
           <select name="start_at" id="start_at">
             <option value="08:00 AM">8AM</option>
             <option value="09:00 AM">9AM</option>
@@ -37,7 +42,7 @@
             <option value="04:00 PM">4PM</option>
             <option value="05:00 PM">5PM</option>
           </select><br />
-          <label for="end_at">day</label><br />
+          <label for="end_at">End at</label><br />
           <select name="end_at" id="end_at">
             <option value="08:00 AM">8AM</option>
             <option value="09:00 AM">9AM</option>

@@ -9,7 +9,7 @@ const db = require('./database')
 // set the view engine to ejs
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }))
-
+app.use(express.static('public'))
 // index page
   app.route('/').get((req,res) =>{
     //res.render('pages/index')
@@ -31,10 +31,11 @@ app.use(bodyParser.urlencoded({ extended: true }))
         users: data.users
     })
   }).post((req, res) =>{
-    db.none('insert into schedules(user_id, day, start_at, end_at)' +
+    db.none('insert into schedules(user_name, day, start_at, end_at)' +
     'values(${user_id}, ${day}, ${start_at}, ${end_at})',req.body)
     .then((schedules) => {
-        res.redirect('/new')
+        res.status(201)
+        res.redirect('/new?status=created');
     })
     .catch((err) => {
         res.send(err.message)
